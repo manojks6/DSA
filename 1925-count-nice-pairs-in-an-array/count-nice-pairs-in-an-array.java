@@ -2,8 +2,8 @@ class Solution {
     public int countNicePairs(int[] nums) {
         int count=0;
         HashMap<Integer,Integer> m=new HashMap<>();
-        for(int i=0;i<nums.length;i++){
-            int x=nums[i]-rev(nums[i]);
+        for(int i:nums){
+            int x=i-rev(i);
             int c=m.getOrDefault(x,0);
             m.put(x,c+1);
             count=(count+c)%1000000007;
