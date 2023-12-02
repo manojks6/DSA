@@ -13,10 +13,10 @@ class Solution {
 
     static int f(int i,int sum,int[] a){
         if(i==0){
-            if(a[0]==0 && sum==0){
+            if(a[i]==0 && sum==0){
                 return 2;
             }
-            if(sum==a[0]||sum==0){
+            if(a[0]==sum ||sum==0){
                 return 1;
             }
             return 0;
