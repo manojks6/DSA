@@ -1,5 +1,7 @@
 class Solution(object):
     def sumOfThree(self, num):
+        if num%3!=0:
+            return []
         if num==0:
             return [-1,0,1]
         l=0
