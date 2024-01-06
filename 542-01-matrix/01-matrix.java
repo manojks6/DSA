@@ -25,13 +25,13 @@ class Solution {
             q.poll();
             int r=p.r,c=p.c,step=p.step;
             ans[r][c]=step;
-            int row[]={0,0,1,-1};
-            int col[]={1,-1,0,0};
+            int nextRow[]={0,0,1,-1};
+            int nextCol[]={1,-1,0,0};
             for(int i=0;i<4;i++){
-                int cc=c+col[i],rr=r+row[i];
-                if(cc>=0 && rr>=0 && rr<m && cc<n && vis[rr][cc]!=1){
-                    vis[rr][cc]=1;
-                    q.add(new Pair(rr,cc,step+1));
+                int col=c+nextCol[i],row=r+nextRow[i];
+                if(col>=0 && row>=0 && row<m && col<n && vis[row][col]!=1){
+                    vis[row][col]=1;
+                    q.add(new Pair(row,col,step+1));
                 }
             }
         }
