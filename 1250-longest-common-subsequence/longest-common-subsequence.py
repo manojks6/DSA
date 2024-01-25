@@ -1,15 +1,15 @@
 class Solution(object):
-    def longestCommonSubsequence(self, s1, s2):
-        l=[[-1 for i in range(0,len(s2)+1)] for j in range(0,len(s1)+1)]
-        return self.f(len(s1)-1,len(s2)-1,s1,s2,l)
-    def f(self, i,j,s1,s2,l):
-        if i<0 or j<0:
-            return 0
-        if l[i+1][j+1]!=-1:
-            return l[i+1][j+1]
-        if s1[i]==s2[j]:
-            l[i+1][j+1]=1+self.f(i-1,j-1,s1,s2,l)
-            return l[i+1][j+1]
-        l[i+1][j+1]=max(self.f(i-1,j,s1,s2,l),self.f(i,j-1,s1,s2,l))
-        return l[i+1][j+1]
-    
+    def longestCommonSubsequence(self, text1, text2):
+        m=len(text1)
+        n=len(text2)
+        l=[[0 for i in range(n+1)] for i in range(m+1)]
+        for i in range(1,m+1):
+            for j in range(1,n+1):
+                if text1[i-1]==text2[j-1]:
+                    l[i][j]=l[i-1][j-1]+1
+                else:
+                    l[i][j]=max(l[i-1][j],l[i][j-1])
+        return l[m][n]
+                
+        
+        
